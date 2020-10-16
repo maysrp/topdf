@@ -43,7 +43,7 @@ Nginx 配置
 #### 安装
 ##### 网站安装
 
-下载该项目文件到你的网站目录上，给予data目录 和public/upload , public/download , public/plugins , public/themes , 权限为777   
+下载该项目文件pdfgaoji.tgz到你的网站目录上并且解压，给予data目录 和public/upload , public/download , public/plugins , public/themes , 权限为777   
 转到你网站的根目录中的python目录下，执行`python3 install.py`按照提示依次输入数据库用户名，数据库名，数据库密码，即可完成网站的安装。
 
 ##### 转码服务端安装
