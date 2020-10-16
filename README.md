@@ -57,5 +57,12 @@ screen.py是使用screen来保持进程，可以做到按秒处理。
 #### 大功告成
 
 
+### 后台
+![微信截图_20201016205614.png](https://i.loli.net/2020/10/16/UfIKrRO26MCJLFT.png)
 
+
+![微信截图_20201016205630.png](https://i.loli.net/2020/10/16/XGK31HUoJaqcxYC.png)
+
+
+![微信截图_20201016205750.png](https://i.loli.net/2020/10/16/hN4n2rZCHPyOYK9.png)
 
