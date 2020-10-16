@@ -32,4 +32,4 @@ Nginx 配置
 `root  /home/wwwroot/www.yunbt.net/public;`
 
 #### 安装
-下载该项目到你的网站目录上，给予data目录 和public/upload public/download public/plugins public/themes 权限为777
+下载该项目到你的网站目录上，给予data目录 和public/upload , public/download , public/plugins , public/themes , 权限为777
