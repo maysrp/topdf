@@ -36,8 +36,9 @@ Nginx 配置
 修好你的nginx的网站配置文件  
 `vim /usr/local/nginx/conf/vhost/你的网站.conf`
 
-在root那行,最后添加上/public,如下的代码形式，定义web的根目录为public
-`root  /home/wwwroot/www.yunbt.net/public;`
+在root那行,最后添加上/public,如下的代码形式，定义web的根目录为public  
+
+`root /home/wwwroot/www.yunbt.net/public;`
 
 #### 安装
 ##### 网站安装
