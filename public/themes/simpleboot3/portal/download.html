@@ -1,0 +1,39 @@
+<extend name="public/base" />
+<block name="title">文档正在处理中</block>
+<block name="left">
+<div class="row">
+    <div class="jumbotron">
+        <h1 class="h1">文档正在处理中。。。</h1>
+        <p>请不要关闭和刷新该页面，请耐心等待网页自动跳出下载链接</p>
+        
+        <p >
+            <a href="" id="download" class="hide btn btn-success">立即下载</a>
+        </p>
+      </div>
+</div>
+
+
+</block>
+<block name="right">
+    {__block__}
+</block>
+<block name="right">
+    <script>
+        function aj(){
+            $.ajax({
+                'url':'{:url('pdf/download_ajax')}',
+                'data':{'tid':{$id}},
+                'method':'post',
+                success:function(data){
+                    if(data['code']){
+                        $("#download").removeClass('hide');
+                        $("#download").attr("href",data['msg']);
+                        $(".h1").text("已经完成处理")
+                        clearInterval(sea);
+                    }
+                }
+            })
+        }
+        sea=setInterval(aj,3000);
+    </script>
+</block>

@@ -1,0 +1,25 @@
+<extend name="public/base" />
+<block name="title">PDF转图片</block>
+<block name="left">
+<div style="margin: 30px;">
+    <form action="{:url('demo/index/uploadpdf2img')}" enctype="multipart/form-data" method="post">
+        <div class="input-group">
+            <div class="input-group-addon">
+                选择转换的PDF
+            </div>
+            <input type="file" name="file"  class="form-control" accept=".pdf"/> 
+            <div class="input-group-btn">
+                <input type="submit" value="上传"  class="btn btn-info"/> 
+            </div>
+        </div>
+    </form> 
+</div>
+</block>
+<block name="right">
+    {__block__}
+</block>
+<block name="script">
+    <script>
+        $("#l4").addClass('active');
+    </script>
+</block>

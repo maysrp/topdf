@@ -1,0 +1,28 @@
+<extend name="public/base"/>
+<block name="main">
+<table class="table">
+    <tr>
+        <th>文件名</th>
+        <th>类型</th>
+        <th>原文件</th>
+        <th>大小</th>
+    </tr>
+    <volist name="info" id="vo">
+        <tr>
+            <if condition="$vo['file_type'] eq 'image'">
+                <td>
+                    <img src="/upload/{$vo['file_url']}" width="10%"/>
+                    {$vo['name']}
+                </td>
+            <else/>
+                <td>{$vo['name']}</td>
+            </if>
+            <td>{$vo['file_type']}</td>
+            <td><a href="/upload/{$vo['file_url']}" class="btn btn-info btn-sm">下载</a></td>
+            <td>{$vo['size']}</td>
+        </tr>
+    </volist>
+
+</table>
+
+</block>

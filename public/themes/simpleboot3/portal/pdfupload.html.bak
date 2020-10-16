@@ -1,0 +1,42 @@
+<extend name="public/base" />
+<block name="title">PDF压缩</block>
+<block name="left">
+<div style="margin: 30px;">
+    <form action="{:url('demo/index/uploadpdf')}" enctype="multipart/form-data" method="post">
+        <div class="col-md-12">
+        <div class="input-group">
+            <div class="input-group-addon">
+                选择需压缩的PDF
+            </div>
+            <input type="file" name="file"  class="form-control" accept=".pdf"/> 
+           
+        </div>
+        </div>
+        <div class="col-md-6 col-md-offset-6"  style="margin-top: 30px;">
+            <div class="input-group">
+                <div class="input-group-addon">
+                    选择需压缩体积
+                </div>
+                <select class="form-control" name='yz'>
+                    <option value="0">小</option>
+                    <option value="1">中</option>
+                    <option value="2">大</option>
+                    <option value="3">巨</option>
+                </select>
+                <div class="input-group-btn">
+                    <button class="btn btn-info">上传</button>
+                </div>
+            </div>
+        </div>
+    </form> 
+</div>
+</block>
+<block name="right">
+    {__block__}
+</block>
+<block name="script">
+    <script>
+        $("#l1").addClass('active');
+    </script>
+</block>
+

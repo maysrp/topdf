@@ -1,0 +1,105 @@
+<extend name="public/base" />
+<block name="title">表格转PDF</block>
+<block name="left">
+    <div class="row" style="margin: 10px;">
+        <div class="input-group">
+            <input type="text" class="form-control" accept=".txt" id="videoname" disabled/>
+            <input type="file" id="video" class="hide">
+            <div class="input-group-btn">
+                <button id="video_btn" class="btn btn-info">选择你要上传的Excel表格</button>
+                <button id="up" class="btn btn-success" disabled='disabled'>上传</button>
+            </div>
+
+        </div>
+    </div>
+    <div class="row" style="margin: 10px;">
+            <div class="progress">
+            <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+        
+            </div>
+            </div>
+    </div>
+
+<script type="text/javascript">
+
+var xhrOnProgress=function(fun) {
+    xhrOnProgress.onprogress = fun; 
+    return function() {
+        var xhr = $.ajaxSettings.xhr();
+        if (typeof xhrOnProgress.onprogress !== 'function')
+            return xhr;
+        if (xhrOnProgress.onprogress && xhr.upload) {
+            xhr.upload.onprogress = xhrOnProgress.onprogress;
+        }
+        return xhr;
+    }
+}
+
+
+    $("#video_btn").click(function(){
+        $("#video").click();
+    })
+    $("#video").change(function(){
+        var videoname=$(this).val();
+        file=this.files[0];
+        if(file.size>110241024){
+            alert("选择文件过大");
+            file='';
+        }else{
+            if(!(file.name.split('.').pop().toLowerCase( )=='xls'||file.name.split('.').pop().toLowerCase( )=='xlsx')){
+                alert("请选择Excel表格上传");
+                file='';
+            }else{
+                $("#videoname").val(videoname);
+                $("#up").removeAttr("disabled");
+
+            }
+        }
+    })
+    $("#up").click(function(){
+        var fd=new FormData();
+        fd.append("file",file);
+        $.ajax({
+            url:"{:url('portal/pdf/uploadexcel')}",
+            type:"POST",
+            data:fd,
+            processData: false,  
+              contentType: false,  
+              xhr:xhrOnProgress(function(e){
+                  var pre=e.loaded/e.total;
+                  precent=pre*100;
+                  $("#progress").css('width',precent+"%");
+                  if(precent>40){
+                    $("#progress").addClass(" progress-bar-info");
+                  }
+                  if(precent>90){
+                    $("#progress").removeClass(" progress-bar-info");
+                    $("#progress").addClass(" progress-bar-success");
+                 }
+              }),
+            success:function(data){
+                if(data['code']){
+                    window.location.href=data['url'];
+                }else{
+                    alert(data['msg']);
+                }
+            }
+        })
+
+
+    })
+
+
+
+</script>
+
+
+</block>
+<block name="right">
+    {__block__}
+</block>
+<block name="script">
+    <script>
+        $("#l6").addClass('active');
+    </script>
+</block>

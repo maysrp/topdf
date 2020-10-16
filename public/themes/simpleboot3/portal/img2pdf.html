@@ -1,0 +1,25 @@
+<extend name="public/base" />
+<block name="title">图片合成PDF</block>
+<block name="left">
+<div style="margin: 30px;">
+    <form action="{:url('demo/index/uploadimg2pdf')}" enctype="multipart/form-data" method="post">
+        <div class="input-group">
+            <div class="input-group-addon">
+                选择需合并的图片
+            </div>
+            <input type="file" name="file[]" multiple="multiple"  class="form-control" accept=".jpg,.jpeg,.png,.gif"/> 
+            <div class="input-group-btn">
+                <input type="submit" value="上传"  class="btn btn-info"/> 
+            </div>
+        </div>
+    </form> 
+</div>
+</block>
+<block name="right">
+    {__block__}
+</block>
+<block name="script">
+    <script>
+        $("#l3").addClass('active');
+    </script>
+</block>

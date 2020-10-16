@@ -1,0 +1,42 @@
+
+
+
+<extend name="public/base"/>
+<block name="main">
+<table class="table" style="margin-top: 10px;">
+    <tr>
+        <th>ID</th>
+        <th>上传时间</th>
+        <th>UID</th>
+        <th>处理操作</th>
+
+        <th>操作时间</th>
+        <th>下载地址</th>
+        <th>大小</th>
+        <th>原文件</th>
+    </tr>
+    <volist name="all" id="vo">
+        <tr>
+            <td>{$vo['tid']}</td>
+            <td>{$vo['time']|date="Y-m-d H:i"}</td>
+            <td title="{$vo['ip']} ">{$vo["uid"]|ax}</td>
+            <td><span class="label label-primary">{$vo['task_type']|acca}</span></td>
+
+            <if condition="($vo['task_do'] neq 0 )and ($vo['task_done'] eq 0)">
+                <td>正在处理中</td>
+                <td>未完成</td>
+            <else />
+                <td title="耗时{$vo['task_done']-$vo['task_do']}秒">{$vo['task_done']|date="Y-m-d H:i"}</td>
+                <td><a href="{$vo['download_url']}" class="btn btn-success btn-sm" >下载</a></td>
+            </if>
+            <td>{$vo['size']}</td>
+            <td>   
+                <a href="{:url('index/ori',['tid'=>$vo['tid']])}" class="btn btn-info btn-sm">打开</a>
+                <a href="{:url('index/del',['tid'=>$vo['tid']])}" class="btn btn-danger btn-sm">删除</a>
+            </td>
+        </tr>
+    </volist>
+</table>
+
+    <div class="text-center"><ul class="pagination">{$all->render()}</ul></div>
+</block>

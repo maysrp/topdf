@@ -1,0 +1,28 @@
+<extend name="public/base"/>
+<block name="main">
+    <div class="jumbotron" style="margin: 10px;">
+        <h1>修改PDF设置</h1>
+        <p>循环周期：在一个周期的时间长度，单位为小时。</p>
+        <p>限制IP：在一个周期内同一个IP可以操作的次数。</p>
+        <p>限制用户：在一个周期内同一个注册用户可以操作的次数。</p>
+      </div>
+    <div class="main">
+        <form action="{:url('index/update_setting')}">
+            <div class="input-group" style="margin: 10px;">
+                <span class="input-group-addon">循环周期（小时）</span>
+                <input type="text" name="xh" class="form-control" value="{$info.xh|0}" >
+            </div>
+            <div class="input-group" style="margin: 10px;">
+                <span class="input-group-addon">限制IP</span>
+                <input type="text" name="ip" class="form-control"  value="{$info.ip|0}">
+            </div>
+            <div class="input-group" style="margin: 10px;">
+                <span class="input-group-addon">限制用户</span>
+                <input type="text" name="user" class="form-control"  value="{$info.user|0}">
+            </div>
+            <div class="text-right">
+                <button class="btn btn-info "  >修改</button>
+            </div>
+        </form>
+    </div>
+</block>
