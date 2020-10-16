@@ -52,7 +52,7 @@ Nginx 配置
 run.py使用crontab 去每分钟执行一次去处理文档的转码。  
 screen.py是使用screen来保持进程，可以做到按秒处理。  
 推荐使用screen  
-`screen -d pdf python3 screen.py`
+`screen -dmS pdf python3 screen.py`
 
 #### 大功告成
 
