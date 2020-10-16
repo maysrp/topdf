@@ -40,12 +40,12 @@ Nginx 配置
 `root  /home/wwwroot/www.yunbt.net/public;`
 
 #### 安装
-#####网站安装
+##### 网站安装
 
 下载该项目文件到你的网站目录上，给予data目录 和public/upload , public/download , public/plugins , public/themes , 权限为777   
 转到你网站的根目录中的python目录下，执行`python3 install.py`按照提示依次输入数据库用户名，数据库名，数据库密码，即可完成网站的安装。
 
-#####转码服务端安装
+##### 转码服务端安装
 修改python目录下的 run.py和screen.py 中13行代码 设置为你的网站的根目录。  
 `webdir="/home/wwwroot/pdf.gaoji.me/"`  
 run.py使用crontab 去每分钟执行一次去处理文档的转码。  
